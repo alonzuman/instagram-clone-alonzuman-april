@@ -1,0 +1,12 @@
+<div class="post-card-container">
+  <%= post.user.username %>
+  <%= post.description %>
+  <% if post.photo.attached? %>
+      <%= cl_image_tag(post.photo.key, class:"post-image") %>  
+  <% end %>
+  <% post.comments.each do |comment| %>
+    <%= comment.content%>
+    <%= link_to "Delete comment", comment_path(comment), method: :delete %>
+  <% end %>
+  <%= link_to "Add comment", new_post_comment_path(post) %>
+</div>

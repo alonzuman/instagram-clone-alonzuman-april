@@ -1,0 +1,21 @@
+<div class="footer-container">
+  <ul class="footer-buttons">
+    <li class="footer-button">
+      <%= link_to "Home", root_path %>
+    </li>
+    <li class="footer-button">
+      <%= link_to "Discover", '#' %>
+    </li>
+    <li class="footer-button">
+      <%= link_to "Upload", '#' %>
+    </li>
+    <li class="footer-button">
+      <%= link_to "Activity", '#' %>
+    </li>
+    <li class="navbar-item">
+      <%= link_to user_path(current_user) do %>
+        <%= cl_image_tag(current_user.photo.key, class:"small-round-avatar") %>
+      <% end %>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,6 @@
+<%= render 'shared/navbar', { left: (link_to "Upload", new_post_path), center: "Instagram", right: "Messages" } %>
+<div class="container">
+  <% @posts.each do |post| %>
+    <%= render "shared/post-card", post: post %>
+  <% end%>
+</div>

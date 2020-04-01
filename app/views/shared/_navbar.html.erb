@@ -1,33 +1,23 @@
-<%= current_user.photo.attached? %>
-<%= current_user.photo.key %>
+<% (left = '') if left.nil? %>
+<% (center = '') if center.nil? %>
+<% (right = '') if right.nil? %>
 
-<%= cl_image_tag("btm9gjcu8bcquxgxotui",
-      width: 400, height: 300, crop: :fill) %>
-
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+<div class="navbar-container">
+  <ul class="navbar-flex-icons">
+    <% if user_signed_in? %>
+      <li class="navbar-item">
+        <%= left%>
+      </li>
+      <li class="navbar-item">
+        <%= center%>
+      </li>
+      <li class="navbar-item">
+        <%= right%>
+      </li>
+    <% else %>
+      <li class="navbar-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
     <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item avatar">
-          <%= cl_image_tag(current_user.photo.key) %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  </ul>
 </div>

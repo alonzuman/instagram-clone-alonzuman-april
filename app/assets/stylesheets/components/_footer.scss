@@ -1,18 +1,19 @@
-.navbar-container {
+.footer-container {
   height: 60px;
   background-color: $light-gray;
   position: fixed;
-  top: 0;
+  bottom: 0;
   width: 100%;
   box-shadow: 1px 1px 10px #00000030;
 }
 
-.navbar-flex-icons {
+.footer-buttons {
+  padding: 0 20px;
   display: flex;
   justify-content: space-evenly;
-  padding: 0 20px;
 }
 
-.navbar-item {
+.footer-button {
+  margin: 0 10px;
   padding: 6px 12px;
 }

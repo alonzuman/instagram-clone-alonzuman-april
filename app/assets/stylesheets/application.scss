@@ -11,3 +11,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "./components/avatar";
+@import "./components/footer";
+@import "./components/post-card";
+
+
+ul {
+  list-style: none;
+}
+
+.container {
+  padding-top: 20px!important;
+  margin-top: 60px!important;
+  padding-bottom: 20px!important;
+  margin-bottom: 60px!important;
+}
+
+img {
+  image-orientation: from-image!important;
+}
