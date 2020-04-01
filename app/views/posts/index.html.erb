@@ -1,4 +1,4 @@
-<%= render 'shared/navbar', { left: (link_to "Upload", new_post_path), center: "Instagram", right: "Messages" } %>
+<%= render 'shared/navbar', center: "Instagram"%>
 <div class="container">
   <% if !@posts.empty? %>
     <% @posts.each do |post| %>

@@ -1,20 +1,30 @@
 <div class="footer-container">
   <ul class="footer-buttons">
     <li class="footer-button">
-      <%= link_to "Home", root_path %>
+      <%= link_to root_path do %>
+        <i class="fas fa-home"></i>
+      <% end %>
     </li>
     <li class="footer-button">
-      <%= link_to "Discover", '#' %>
+      <%= link_to "#" do %>
+        <i class="fas fa-compass"></i>
+      <% end %>
     </li>
     <li class="footer-button">
-      <%= link_to "Upload", '#' %>
+      <%= link_to new_post_path do %>
+        <i class="far fa-plus-square"></i>
+      <% end %>
     </li>
     <li class="footer-button">
-      <%= link_to "Activity", '#' %>
+      <%= link_to "#" do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
     </li>
     <li class="navbar-item">
       <% if (user_signed_in? && current_user.photo.attached?) %>
-        <%= link_to "Profile",  user_path(current_user)%>
+        <%= link_to user_path(current_user) do %>
+          <%= cl_image_tag(current_user.photo.key, class:"navbar-avatar")%>
+        <% end %>
       <% end %>
     </li>
   </ul>

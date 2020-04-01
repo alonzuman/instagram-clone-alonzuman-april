@@ -16,14 +16,13 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to root_path
     else
       render :new
     end
   end
 
   def destroy
-    # raise
     @post = Post.find(params[:id])
     @post.destroy
 

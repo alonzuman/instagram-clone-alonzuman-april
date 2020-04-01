@@ -15,6 +15,9 @@
 @import "./components/footer";
 @import "./components/post-card";
 
+body {
+  background-color: white;
+}
 
 ul {
   list-style: none;
@@ -25,8 +28,19 @@ ul {
   margin-top: 60px!important;
   padding-bottom: 20px!important;
   margin-bottom: 60px!important;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 img {
   image-orientation: from-image!important;
+}
+
+h5 {
+  font-size: 14px;
+  margin-top: 16px;
+  color: black;
+  font-weight: 600;
 }

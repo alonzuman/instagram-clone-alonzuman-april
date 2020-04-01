@@ -1,35 +1,56 @@
-<div class="post-card-container">
-
-
-<% if current_user = post.user%>
-  <%= link_to "Delete Post", post_path(post), method: :delete, data: { confirm: "Are you sure?" }%>
-<% end%>
+<div class="post-card-container" id="<%= post.id %>">
   <%# Card %>
-  <%= post.user.username %>
-  <%= post.description %>
+  <%# Card header %>
+  <div class="post-card-header">
+    <div class="photo-and-username">
+      <%= cl_image_tag(post.user.photo.key, class:"small-round-avatar")%>
+      <h5><%= post.user.username %></h5>
+    </div>
+    <% if current_user = post.user%>
+      <%= link_to "Delete Post", post_path(post), method: :delete, data: { confirm: "Are you sure?" }%>
+    <% end%>
+  </div>
+
+
   <% if post.photo.attached? %>
       <%= cl_image_tag(post.photo.key, class:"post-image") %>  
   <% end %>
-  <%= post.likes.count %>
-  <% post.comments.each do |comment| %>
-    <%= comment.content%>
-    <%= link_to "Delete comment", comment_path(comment), method: :delete %>
-  <% end %>
-  <%= link_to "Add comment", new_post_comment_path(post) %>
-  
 
-  <%# Likes Logic %>
-  <% if post.likes.empty? %>
-    <%= link_to "Like", new_post_like_path(post) %>
-  <% else%>
-    <% post.likes.each do |like| %>
-      <% if like.user.username == current_user.username %>
-        <%= link_to "Unlike", like_path(like), method: :delete%>
-      <% else %>
-        <%= link_to "Like", new_post_like_path(post) %>
+  <%# Post buttons bar %>
+  <div class="post-buttons-bar">
+    <% if post.likes.empty? %>
+      <%= link_to "Like", new_post_like_path(post) %>
+    <% else%>
+      <% post.likes.each do |like| %>
+        <% if like.user.username == current_user.username %>
+          <%= link_to "Unlike", like_path(like), method: :delete%>
+        <% else %>
+          <%= link_to "Like", new_post_like_path(post) %>
+        <% end %>
       <% end %>
+    <% end%>
+    <%= link_to "Add comment", new_post_comment_path(post) %>
+  </div>
+  
+  <%# Post likes meter %>
+  <div class="post-likes-meter">
+    <%= post.likes.count %>
+  </div>
+  
+  <%# Post description and comments section %>
+  <div class="post-comments-container">
+    <%= post.description %>
+    <% post.comments.each do |comment| %>
+      <div class="comment">
+        <div class="content-and-username">
+          <%= comment.user.username %>
+          <%= comment.content %>
+        </div>
+        <%= link_to "Delete", comment_path(comment), method: :delete %>
+      </div>
     <% end %>
-  <% end%>
+  </div>
 
+  <%# Post timestamp %>
 
 </div>
