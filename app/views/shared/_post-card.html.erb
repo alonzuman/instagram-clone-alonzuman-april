@@ -1,12 +1,32 @@
 <div class="post-card-container">
+  
+  <%# Card %>
+  <% raise %>
   <%= post.user.username %>
   <%= post.description %>
   <% if post.photo.attached? %>
       <%= cl_image_tag(post.photo.key, class:"post-image") %>  
   <% end %>
+  <%= post.likes.count %>
   <% post.comments.each do |comment| %>
     <%= comment.content%>
     <%= link_to "Delete comment", comment_path(comment), method: :delete %>
   <% end %>
   <%= link_to "Add comment", new_post_comment_path(post) %>
+  
+
+  <%# Likes Logic %>
+  <% if post.likes.empty? %>
+    <%= link_to "Like", new_post_like_path(post) %>
+  <% else%>
+    <% post.likes.each do |like| %>
+      <% if like.user.username == current_user.username %>
+        <%= link_to "Unlike", like_path(like), method: :delete%>
+      <% else %>
+        <%= link_to "Like", new_post_like_path(post) %>
+      <% end %>
+    <% end %>
+  <% end%>
+
+
 </div>
