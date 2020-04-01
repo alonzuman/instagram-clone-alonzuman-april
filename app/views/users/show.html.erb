@@ -1,7 +1,15 @@
 <%= render  "shared/navbar", left: '', center: @user.username, right: 'Settings' %>
 <div class="container">
+
   <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-  <%= cl_image_tag(@user.photo.key, class:"medium-round-avatar") %>
+  
+  <%# User avatar %>
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag(@user.photo.key, class:"medium-round-avatar") %>
+  <% else %>
+    <h1>default photo</h1>
+  <% end %>
+
   <h1><%= @user.username %></h1>
   <h1><%= @user.full_name %></h1>
   <h1><%= @user.email %></h1>
