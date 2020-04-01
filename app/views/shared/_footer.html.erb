@@ -14,9 +14,7 @@
     </li>
     <li class="navbar-item">
       <% if (user_signed_in? && current_user.photo.attached?) %>
-        <%= link_to user_path(current_user) do %>
-          <%= cl_image_tag(current_user.photo.key, class:"small-round-avatar") %>
-        <% end %>
+        <%= link_to "Profile",  user_path(current_user)%>
       <% end %>
     </li>
   </ul>
