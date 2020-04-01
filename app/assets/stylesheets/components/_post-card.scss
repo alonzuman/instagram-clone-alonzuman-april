@@ -19,6 +19,14 @@
   object-fit: cover;
 }
 
+.post-likes-meter {
+  padding: 0px 10px;
+}
+
+.post-likes-meter p {
+  margin-bottom: 0px;
+}
+
 .comment {
   display: flex;
   justify-content: space-between;
@@ -30,4 +38,34 @@
 
 .post-comments-container {
   padding: 10px;
+}
+
+.username-description-container {
+  padding: 0 10px;
+  display: flex;
+
+  p {
+    margin: 0px;
+    font-size: 14px;
+  }
+
+  h5 {
+    margin: 2px 10px 0px 0px ;
+    font-size: 14px;
+  }
+}
+
+.content-and-username {
+  padding: 0 10px;
+  display: flex;
+
+  p {
+    margin: 0px;
+    font-size: 14px;
+  }
+
+  h5 {
+    margin: 2px 10px 0px 0px ;
+    font-size: 14px;
+  }
 }

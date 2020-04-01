@@ -20,7 +20,7 @@
         <i class="fas fa-heart"></i>
       <% end %>
     </li>
-    <li class="navbar-item">
+    <li class="footer-button">
       <% if (user_signed_in? && current_user.photo.attached?) %>
         <%= link_to user_path(current_user) do %>
           <%= cl_image_tag(current_user.photo.key, class:"navbar-avatar")%>

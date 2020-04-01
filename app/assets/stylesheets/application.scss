@@ -18,6 +18,7 @@
 
 body {
   background-color: white;
+  font-family: "Nunito", "Helvetica", "sans-serif";
 }
 
 ul {
@@ -43,11 +44,19 @@ img {
 a {
   text-decoration: none;
   color: black;
+  font-size: 12px;
 }
 
 a:hover {
   text-decoration: none;
   color: black;
+}
+
+h4 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: black;
+  font-weight: 600;
 }
 
 h5 {
@@ -61,10 +70,10 @@ h5 {
 
 .fas {
   font-size: 22px;
-  margin: 15px;
+  margin: 10px;
 }
 
 .far {
-  font-size: 18px;
+  font-size: 22px;
   margin: 10px;
 }

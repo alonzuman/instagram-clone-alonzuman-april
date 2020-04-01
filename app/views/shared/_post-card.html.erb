@@ -34,17 +34,20 @@
   
   <%# Post likes meter %>
   <div class="post-likes-meter">
-    <%= post.likes.count %>
+    <p><%= post.likes.count %> likes</p>
   </div>
   
   <%# Post description and comments section %>
   <div class="post-comments-container">
-    <%= post.description %>
+    <div class="username-description-container">
+      <h5><%= post.user.username %></h5>
+      <p><%= post.description %></p>
+    </div>
     <% post.comments.each do |comment| %>
       <div class="comment">
         <div class="content-and-username">
-          <%= comment.user.username %>
-          <%= comment.content %>
+          <h5><%= comment.user.username %></h5>
+          <p><%= comment.content %></p>
         </div>
         <%= link_to "Delete", comment_path(comment), method: :delete %>
       </div>
