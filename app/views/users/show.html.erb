@@ -1,9 +1,8 @@
-<%= render  "shared/navbar", left: '', center: @user.username, right: (link_to "", edit_user_registration_path, class:"fas fa-cog") %>
+<%= render  "shared/navbar", center: @user.username %>
 
 <div class="container">
   
   <%# User avatar %>
-
   <%# User header %>
   <div class="user-header">
     <% if @user.photo.attached? %>
@@ -12,13 +11,18 @@
     <%# Stats meter %>
     <%= render "shared/stats-meter", user: @user %>
   </div>
+  <div class="bio-and-edit">
+    <%= link_to edit_user_registration_path do %>
+      <div class="secondary-button">Edit</div>
+    <% end %>
+  </div>
+  
+  
 
 
   <div class="posts-grid">
     <% @user.posts.each do |post| %>
-      <div class="grid-photo-container">
-        <%= cl_image_tag(post.photo.key, class:"grid-photo")%>
-      </div>
+      <%= cl_image_tag(post.photo.key, class:"grid-photo")%>
     <% end %>
   </div>
   
