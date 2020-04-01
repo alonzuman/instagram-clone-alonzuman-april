@@ -1,0 +1,29 @@
+.user-header {
+  display: flex;
+  padding: 0 10px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.stats {
+  text-align: center;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+}
+
+.grid-photo-container {
+  height: 100%;
+}
+
+.grid-photo {
+  object-fit: cover;
+  width: 100%;
+}

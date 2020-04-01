@@ -1,15 +1,13 @@
 .navbar-container {
-  height: 60px;
   background-color: white;
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 1px 1px 10px #00000030;
 }
 
 .navbar-flex-icons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 0 20px;
 }
 

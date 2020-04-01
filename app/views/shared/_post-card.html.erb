@@ -7,7 +7,7 @@
       <h5><%= post.user.username %></h5>
     </div>
     <% if current_user = post.user%>
-      <%= link_to "Delete Post", post_path(post), method: :delete, data: { confirm: "Are you sure?" }%>
+      <%= link_to '', post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash"%>
     <% end%>
   </div>
 
@@ -19,17 +19,17 @@
   <%# Post buttons bar %>
   <div class="post-buttons-bar">
     <% if post.likes.empty? %>
-      <%= link_to "Like", new_post_like_path(post) %>
+      <%= link_to '', new_post_like_path(post), class:"far fa-heart"%>
     <% else%>
       <% post.likes.each do |like| %>
         <% if like.user.username == current_user.username %>
-          <%= link_to "Unlike", like_path(like), method: :delete%>
+          <%= link_to '', like_path(like), method: :delete, class:"fas fa-heart"%>
         <% else %>
-          <%= link_to "Like", new_post_like_path(post) %>
+          <%= link_to '', new_post_like_path(post), class:"far fa-heart"%>
         <% end %>
       <% end %>
     <% end%>
-    <%= link_to "Add comment", new_post_comment_path(post) %>
+    <%= link_to '', new_post_comment_path(post), class:"far fa-comment" %>
   </div>
   
   <%# Post likes meter %>
