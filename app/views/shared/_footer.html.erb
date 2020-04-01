@@ -13,8 +13,10 @@
       <%= link_to "Activity", '#' %>
     </li>
     <li class="navbar-item">
-      <%= link_to user_path(current_user) do %>
-        <%= cl_image_tag(current_user.photo.key, class:"small-round-avatar") %>
+      <% if user_signed_in? %>
+        <%= link_to user_path(current_user) do %>
+          <%= cl_image_tag(current_user.photo.key, class:"small-round-avatar") %>
+        <% end %>
       <% end %>
     </li>
   </ul>
