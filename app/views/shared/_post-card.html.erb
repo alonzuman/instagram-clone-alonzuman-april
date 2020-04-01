@@ -1,7 +1,9 @@
 <div class="post-card-container">
 
-<%= link_to "Delete Post", post_path(post), method: :delete, data: { confirm: "Are you sure?" }%>
-  
+
+<% if current_user = post.user%>
+  <%= link_to "Delete Post", post_path(post), method: :delete, data: { confirm: "Are you sure?" }%>
+<% end%>
   <%# Card %>
   <%= post.user.username %>
   <%= post.description %>
