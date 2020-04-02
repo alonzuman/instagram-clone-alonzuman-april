@@ -4,14 +4,14 @@
 <div class="navbar-container">
   <ul class="navbar-flex-icons">
     <% if user_signed_in? %>
-      <li class="navbar-item">
-        <%= left%>
+      <li class="navbar-item-side">
+        <%= left %>
       </li>
       <li class="navbar-item">
-        <h4><%= center%></h4>
+        <h4><%= center %></h4>
       </li>
-      <li class="navbar-item">
-        <%= right%>
+      <li class="navbar-item-side">
+        <%= right %>
       </li>
     <% else %>
       <li class="navbar-item">

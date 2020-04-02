@@ -5,6 +5,7 @@
 }
 
 .post-card-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -71,5 +72,30 @@
   h5 {
     margin: 2px 10px 0px 0px ;
     font-size: 14px;
+  }
+}
+
+// Dropdown delete button
+
+#dropdown-icon {
+  color: black;
+}
+
+.dropdown-content {
+  display:none;
+}
+
+.delete-button {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  margin-top: 18px;
+  background-color: white;
+  padding: 12px 18px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 10px #00000033;
+
+  h5 {
+    margin: 0;
   }
 }

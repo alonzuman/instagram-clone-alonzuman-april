@@ -5,13 +5,18 @@
   <%# User avatar %>
   <%# User header %>
   <div class="user-header">
-    <% if @user.photo.attached? %>
-      <%= cl_image_tag(@user.photo.key, class:"medium-round-avatar") %>
-    <% end %>
+    <div class="avatar-container">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag(@user.photo.key, class:"medium-round-avatar") %>
+      <% end %>
+    </div>
     <%# Stats meter %>
     <%= render "shared/stats-meter", user: @user %>
   </div>
   <div class="bio-and-edit">
+    <h5><%= @user.full_name %></h5>
+    <p><%= @user.bio %></p>
+    
     <%= link_to edit_user_registration_path do %>
       <div class="secondary-button">Edit</div>
     <% end %>
@@ -23,7 +28,9 @@
   <div class="posts-grid">
     <% @user.posts.each do |post| %>
       <div class="image-container">
-        <%= cl_image_tag(post.photo.key, class:"photo")%>
+        <%= link_to post_path(post) do %>
+          <%= cl_image_tag(post.photo.key, class:"photo")%>
+        <% end %>
       </div>
     <% end %>
   </div>

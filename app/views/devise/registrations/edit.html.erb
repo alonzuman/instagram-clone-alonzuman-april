@@ -12,6 +12,7 @@
         <%= f.input :photo, as: :file %>
         <%= f.input :username %>
         <%= f.input :full_name %>
+        <%= f.input :bio %>
         <%= f.input :email, required: true, autofocus: true %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -37,10 +38,11 @@
     <% end %>
 
     <div class="log-out">
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"link" %>
     </div>
     <div class="log-out">
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <h5>Unhappy? </h5> 
+      <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"link" %>
     </div>
   </div>
 </div>

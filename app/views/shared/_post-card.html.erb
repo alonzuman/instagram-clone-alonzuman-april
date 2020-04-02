@@ -4,10 +4,22 @@
   <div class="post-card-header">
     <div class="photo-and-username">
       <%= cl_image_tag(post.user.photo.key, class:"small-round-avatar")%>
-      <h5><%= post.user.username %></h5>
+      <%= link_to user_path(post.user) do %>
+        <h5><%= post.user.username %></h5>
+      <% end %>
     </div>
     <% if current_user = post.user%>
-      <%= link_to '', post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class:"fas fa-trash"%>
+      
+        <div id="dropdown-icon" class="fas fa-ellipsis-v">
+          <div class="dropdown-content">
+            <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <div class="delete-button">
+                <h5> Delete post </h5>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      
     <% end%>
   </div>
 
