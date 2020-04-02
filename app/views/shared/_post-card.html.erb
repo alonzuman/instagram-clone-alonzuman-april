@@ -25,7 +25,9 @@
 
 
   <% if post.photo.attached? %>
-      <%= cl_image_tag(post.photo.key, class:"post-image") %>  
+      <div class="image-container">
+        <%= cl_image_tag(post.photo.key, class:"post-image") %>  
+      </div>
   <% end %>
 
   <%# Post buttons bar %>
