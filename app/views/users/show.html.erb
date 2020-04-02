@@ -22,7 +22,9 @@
 
   <div class="posts-grid">
     <% @user.posts.each do |post| %>
-      <%= cl_image_tag(post.photo.key, class:"grid-photo")%>
+      <div class="image-container">
+        <%= cl_image_tag(post.photo.key, class:"photo")%>
+      </div>
     <% end %>
   </div>
   

@@ -15,29 +15,24 @@
 
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-rows: 50px;
   gap: 2px;
+
+  .image-container {
+    box-sizing: border-box;
+  }
+
+  .photo {
+    object-fit: cover;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.posts-grid::before {
-  content: '';
-  width: 0;
-  padding-bottom: 100%;
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-}
 
-.posts-grid > *:first-child {
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-}
-
-.grid-photo {
-  object-fit: cover;
-  width: 100%;
-  height: 100%
-}
 
 .bio-and-edit {
   margin: 10px;
