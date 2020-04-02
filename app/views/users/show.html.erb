@@ -20,6 +20,25 @@
     <%= link_to edit_user_registration_path do %>
       <div class="secondary-button">Edit</div>
     <% end %>
+    <br>
+    
+    <% if @user.followers.empty? %>
+      <%= link_to new_user_follow_path(@user) do %>
+          <div class="primary-button">Follow</div>
+      <% end %>
+      <% else %>
+      <% @user.followers.each do |follower| %>
+        <% if follower.email == current_user.email %>
+          <%= link_to follow_path, method: :delete do %>
+            <div class="secondary-button">Unfollow</div>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_follow_path(@user) do %>
+            <div class="primary-button">Follow</div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
   
   

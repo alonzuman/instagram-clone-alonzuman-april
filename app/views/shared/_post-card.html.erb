@@ -36,7 +36,7 @@
       <%= link_to '', new_post_like_path(post), class:"far fa-heart"%>
     <% else%>
       <% post.likes.each do |like| %>
-        <% if like.user.username == current_user.username %>
+        <% if like.user.email == current_user.email %>
           <%= link_to '', like_path(like), method: :delete, class:"fas fa-heart"%>
         <% else %>
           <%= link_to '', new_post_like_path(post), class:"far fa-heart"%>
