@@ -8,19 +8,13 @@
         <h5><%= post.user.username %></h5>
       <% end %>
     </div>
-    <% if current_user = post.user%>
       
-        <div id="dropdown-icon" class="fas fa-ellipsis-v">
-          <div class="dropdown-content">
-            <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <div class="delete-button">
-                <h5> Delete post </h5>
-              </div>
-            <% end %>
-          </div>
-        </div>
+    <% if policy(post).destroy? %>
+      <%= link_to post_path(post), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <h5 style="margin-right: 10px;"> Delete post </h5>
+      <% end %>
+    <% end %>
       
-    <% end%>
   </div>
 
 
